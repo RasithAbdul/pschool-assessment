@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,9 +22,9 @@ const Login = () => {
     );
 
     if (matchedUser) {
-      localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+      login(matchedUser); // ✅ Update both context + localStorage
       alert("Login successful!");
-      navigate("/");
+      navigate("/"); // ✅ Now always works
     } else {
       alert("Invalid email or password!");
     }

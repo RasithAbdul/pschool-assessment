@@ -1,9 +1,26 @@
-# Frontend
+# ===== FRONTEND =====
 frontend/node_modules/
 frontend/dist/
 frontend/.env
 
-# Backend
+# ===== BACKEND =====
 backend/bin/
 backend/obj/
 
+# ===== Common Build Outputs =====
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# ===== SQLite Database Files =====
+*.db
+*.db-shm
+*.db-wal
+
+# ===== Node Modules =====
+node_modules/
+
+# ===== Environment Files =====
+.env
